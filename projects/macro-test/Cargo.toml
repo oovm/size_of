@@ -1,5 +1,6 @@
 [package]
-name = "name_of"
+name = "macro-test"
+publish = false
 version = "0.0.0"
 authors = ["Aster <192607617@qq.com>"]
 description = "name_of expression for Rust"
@@ -10,13 +11,9 @@ license = "MPL-2.0"
 edition = "2021"
 exclude = ["package.json", "tests/**"]
 
-[lib]
-proc-macro = true
-
-[dependencies]
-syn = "2.0.15"
-quote = "1.0.27"
-proc-macro2 = "1.0.56"
+[dependencies.name_of]
+version = "*"
+path = "../name_of"
 
 
 [dev-dependencies]
