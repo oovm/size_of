@@ -1,6 +1,6 @@
 [package]
 name = "name_of"
-version = "0.0.0"
+version = "0.1.1"
 authors = ["Aster <192607617@qq.com>"]
 description = "name_of expression for Rust"
 repository = "https://github.com/oovm/size_of"
@@ -14,7 +14,7 @@ exclude = ["package.json", "tests/**"]
 proc-macro = true
 
 [dependencies]
-syn = "2.0.15"
+syn = { version = "2.0.15", features = ["full"] }
 quote = "1.0.27"
 proc-macro2 = "1.0.56"
 

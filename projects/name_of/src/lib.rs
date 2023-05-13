@@ -6,9 +6,24 @@
 
 extern crate proc_macro;
 
-use proc_macro::TokenStream;
+mod implements;
 
+use proc_macro::TokenStream;
+use quote::ToTokens;
+use syn::parse_macro_input;
+use implements::NameOf;
+use crate::implements::FunctionName;
+
+/// Returns the name of the item as a string.
 #[proc_macro]
-pub fn make_answer(_item: TokenStream) -> TokenStream {
-    "fn answer() -> u32 { 42 }".parse().unwrap()
+pub fn name_of(input: TokenStream) -> TokenStream {
+    let item = parse_macro_input!(input as NameOf);
+    TokenStream::from(item.to_token_stream())
+}
+
+/// Returns the function name of the item as a string.
+#[proc_macro]
+pub fn function_name(input: TokenStream) -> TokenStream {
+    let item = parse_macro_input!(input as FunctionName);
+    TokenStream::from(item.to_token_stream())
 }
